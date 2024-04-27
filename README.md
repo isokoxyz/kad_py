@@ -12,11 +12,12 @@ You will be required to configure the utility to use your desired wallets for th
 Follow the below steps to complete the configuration:
 
 * Install Pact CLI at [Pact CLI](`https://github.com/kadena-io/pact?tab=readme-ov-file#installing-pact`)
-* Open ***setup.py*** in the ***config*** folder.
-* Modify the **SIGNING_ACCOUNT** and **SIGNING_KEY** values
-`SIGNING_ACCOUNT = <your-kda-k-wallet>`  
-`SIGNING_KEY = <your-kda-account-key>`
-* Open ***keyset.yaml*** in the ***config*** folder. 
+* Create a .env file in the root folder of your project
+* Add 3 variables to your .env file: the **PUBLIC_KEY**, **PRIVATE_KEY** , and **DEFAULT_SENDER** values
+`PUBLIC_KEY = <your-public-kda-key>`  
+`PRIVATE_KEY = <your-secret-kda-key>`
+`DEFAULT_SENDER = <your-k-wallet-address>`
+* Create a ***keyset.yaml*** file in the ***config*** folder. 
 * Add your public KDA key after **public:** as shown  
 `public: <your-public-kda-key>`
 * Add your secret key after **secret:** as shown  
