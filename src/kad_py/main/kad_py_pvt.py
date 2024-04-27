@@ -4,9 +4,11 @@ import hashlib
 import requests
 
 import numpy
+from kad_py.utils.io_utils import file_exists, yaml_load, yaml_dump
 from kad_py.pact_utils import encoding
 from kad_py.commands.command import Command
-from kad_py.config.setup import BASE_URL, DEFAULT_NETWORK_ID, DEFAULT_CHAIN_ID
+from kad_py.config.setup import BASE_URL, DEFAULT_NETWORK_ID, DEFAULT_CHAIN_ID, \
+    PATH_TO_KEY_YAML, PUBLIC_KEY, PRIVATE_KEY
 from kad_py.config.constants import TESTNET_NETWORK_ID, TESTNET_CHAINWEB_URL_PREFIX, \
     MAINNET_CHAINWEB_URL_PREFIX
 
@@ -105,3 +107,19 @@ def get_public_key_from_account(account):
         string: the public key
     """
     return account.split(":")[1]
+
+def set_up_keyset_yaml():
+    if PUBLIC_KEY == "" or PUBLIC_KEY == None or PRIVATE_KEY == "" or PRIVATE_KEY == None:
+        raise Exception("public and/or private keys are invalid")
+    
+    keyset = {
+        "public": PUBLIC_KEY,
+        "private": PRIVATE_KEY
+    }
+
+    if file_exists(PATH_TO_KEY_YAML):
+        data = yaml_load(PATH_TO_KEY_YAML)
+        if data["public"] is PUBLIC_KEY and data["private"] is PRIVATE_KEY:
+            return
+    
+    yaml_dump(keyset, PATH_TO_KEY_YAML)

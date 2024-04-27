@@ -4,8 +4,8 @@ from dotenv import load_dotenv
 env = load_dotenv()
 dirname = os.path.dirname(__file__)
 
-SIGNING_ACCOUNT = os.getenv("SIGNING_ACCOUNT")
-SIGNING_KEY = os.getenv("SIGNING_KEY")
+PUBLIC_KEY = os.getenv("PUBLIC_KEY")
+PRIVATE_KEY = os.getenv("PRIVATE_KEY")
 
 BASE_URL = "https://api.chainweb.com/chainweb/0.0/"
 MAINNET_NETWORK_ID = "mainnet01"

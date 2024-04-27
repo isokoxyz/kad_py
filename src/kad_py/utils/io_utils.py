@@ -73,3 +73,8 @@ def yaml_dump(data, file_path):
     f.close()
 
     return True
+
+def file_exists(file_path):
+    if os.path.isfile(file_path):
+        return True
+    return False

@@ -8,7 +8,7 @@ import subprocess
 
 from kad_py.commands.command import Command
 from kad_py.utils.io_utils import yaml_dump, yaml_load
-from kad_py.main.kad_py_pvt import execute_network_request
+from kad_py.main.kad_py_pvt import execute_network_request, set_up_keyset_yaml
 from kad_py.config.setup import WALLET_HOST_BASE_URL, DEFAULT_REQUEST_HEADERS, \
     PATH_TO_TX_YAML, PATH_TO_TX_SIGNED_YAML, PATH_TO_TX_UNSIGNED_YAML, \
     PATH_TO_KEY_YAML
@@ -57,6 +57,8 @@ def sign_w_cli(cmd: Command):
             initial_file_create.close()
     except Exception as e:
         print(e)
+
+    set_up_keyset_yaml()
 
     signable_cmd = cmd.get_cmd()["cmd"]
 
