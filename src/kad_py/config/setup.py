@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-env = load_dotenv()
+env = load_dotenv(verbose=True, override=True)
 dirname = os.path.dirname(__file__)
 
 PUBLIC_KEY = os.getenv("PUBLIC_KEY")
