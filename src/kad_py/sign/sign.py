@@ -49,6 +49,15 @@ def sign_w_cli(cmd: Command):
     Returns:
         object: the result of the signed transaction
     """
+    yaml_file_paths = [PATH_TO_TX_YAML, PATH_TO_TX_UNSIGNED_YAML, PATH_TO_TX_SIGNED_YAML]
+    try:
+        for file_path in yaml_file_paths:
+            with open(file_path, 'w') as initial_file_create: 
+                pass
+            initial_file_create.close()
+    except Exception as e:
+        print(e)
+
     signable_cmd = cmd.get_cmd()["cmd"]
 
     yaml_dump_success = yaml_dump(signable_cmd, PATH_TO_TX_YAML)
