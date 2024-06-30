@@ -114,7 +114,7 @@ def set_up_keyset_yaml():
     
     keyset = {
         "public": PUBLIC_KEY,
-        "private": PRIVATE_KEY
+        "secret": PRIVATE_KEY
     }
 
     if file_exists(PATH_TO_KEY_YAML):
