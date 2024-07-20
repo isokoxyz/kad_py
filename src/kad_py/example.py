@@ -93,4 +93,6 @@ def test_cont_transaction(sender, key, value):
         print("something went wrong")
         print(cont_response)
 
+
 read_data_from_blockchain("k:b9b798dd046eccd4d2c42c18445859c62c199a8d673b8c1bf7afcfca6a6a81e3", "someKeys")
+# write_data_from_blockchain("k:b9b798dd046eccd4d2c42c18445859c62c199a8d673b8c1bf7afcfca6a6a81e3", "testing", "testing")

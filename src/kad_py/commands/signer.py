@@ -29,7 +29,7 @@ class Signer:
         """
         This function returns signer in format expected by API
         """
-        clist = [cap.get_capability() for cap in self.caps]
+        clist = [cap.get_capability_api() for cap in self.caps]
 
         signer = {
             "pubKey": self.public_key,

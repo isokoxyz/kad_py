@@ -26,7 +26,7 @@ def execute_exec_cmd(
     chain_id: str,
     gas_price: int,
     gas_limit: int,
-    signers: list[Signer],
+    signers: list[Signer], #TODO: fix signers
     env_data: EnvData,
     caps: list[Capability],
     ttl: int,
@@ -87,6 +87,7 @@ def execute_cont_cmd(
     pact_tx_hash: str,
     sign_method: str,
     signers: list[str],
+    caps: list[Capability],
     proof: str
 ):
     """
@@ -120,6 +121,7 @@ def execute_cont_cmd(
         env_data=env_data,
         pact_tx_hash=pact_tx_hash,
         signers=signers,
+        caps=caps,
         proof=proof
     )
 
@@ -189,6 +191,7 @@ def build_cont_cmd(
         env_data: EnvData,
         pact_tx_hash: str,
         signers: list[str],
+        caps: list[Capability],
         proof: str
 ):
     """
@@ -222,6 +225,7 @@ def build_cont_cmd(
         data=env_data,
         pact_tx_hash=pact_tx_hash,
         signers=signers,
+        caps=caps,
         proof=proof
     )
 

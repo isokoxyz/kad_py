@@ -69,31 +69,31 @@ class ExecCommand(Command):
         Returns:
             dict: contains data defining the exec command
         """
-        # cmd = {
-        #     "meta": self.cmd_meta.get_cmd_meta(),
-        #     "networkId": self.network_id,
-        #     "nonce": self.nonce,
-        #     "payload": {
-        #         "exec": {
-        #             "code": self.code,
-        #             "data": self.data.get_env_data()
-        #         }
-        #     },
-        #     "signers": self.get_signers_for_api()
-        # }
-        meta = self.cmd_meta.get_cmd_meta()
         cmd = {
-            "code": self.code,
-            "caps": [cap.get_capability() for cap in self.caps],
-            "sender": meta["sender"],
-            "gasLimit": meta["gasLimit"],
-            "gasPrice": meta["gasPrice"],
-            "chainId": meta["chainId"],
-            "ttl": meta["ttl"],
-            "envData": self.data.get_env_data(),
-            "signingPubKey": get_public_key_from_account(meta["sender"]),
-            "networkId": self.network_id
+            "meta": self.cmd_meta.get_cmd_meta(),
+            "networkId": self.network_id,
+            "nonce": self.nonce,
+            "payload": {
+                "exec": {
+                    "code": self.code,
+                    "data": self.data.get_env_data()
+                }
+            },
+            "signers": self.get_signers_for_api()
         }
+        # meta = self.cmd_meta.get_cmd_meta()
+        # cmd = {
+        #     "code": self.code,
+        #     "caps": [cap.get_capability() for cap in self.caps],
+        #     "sender": meta["sender"],
+        #     "gasLimit": meta["gasLimit"],
+        #     "gasPrice": meta["gasPrice"],
+        #     "chainId": meta["chainId"],
+        #     "ttl": meta["ttl"],
+        #     "envData": self.data.get_env_data(),
+        #     "signingPubKey": get_public_key_from_account(meta["sender"]),
+        #     "networkId": self.network_id
+        # }
 
         cmd_hash = hash_command(cmd)
 

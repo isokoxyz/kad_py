@@ -22,6 +22,22 @@ class Capability:
         cap = {
             "role": self.role,
             "description": self.description,
+            "name": self.name,
+            "args": self.args
+        }
+
+        return cap
+    
+    def get_capability_api(self):
+        """
+        This function returns object containing data defining the capability
+
+        Returns:
+            dict: object defining capability
+        """
+        cap = {
+            "role": self.role,
+            "description": self.description,
             "cap": {
                 "name": self.name,
                 "args": self.args
